@@ -6,5 +6,7 @@ namespace DPAT
 {
     public interface CellState
     {
+        public void SetValue(int value);
+        public void GetValue();
     }
 }

@@ -1,10 +1,11 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DPAT
 {
-    public class SolverStrategy
+    public interface SolverStrategy
     {
+        public void Solve();
     }
 }

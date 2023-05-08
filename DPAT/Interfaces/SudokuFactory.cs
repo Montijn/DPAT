@@ -6,5 +6,6 @@ namespace DPAT
 {
     public interface SudokuFactory
     {
+        public void CreateSudoku();
     }
 }

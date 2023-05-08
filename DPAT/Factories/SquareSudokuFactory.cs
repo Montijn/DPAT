@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -12,6 +12,11 @@ namespace DPAT
             set
             {
             }
+        }
+
+        public void CreateSudoku()
+        {
+            throw new NotImplementedException();
         }
     }
 }

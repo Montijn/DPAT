@@ -13,5 +13,9 @@ namespace DPAT
             {
             }
         }
+        public FileReader GetInstance()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

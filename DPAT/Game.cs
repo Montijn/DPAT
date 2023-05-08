@@ -21,5 +21,14 @@ namespace DPAT
             {
             }
         }
+        public void StartGame()
+        {
+
+        }
+        public void LoadGame()
+        {
+
+        }
+
     }
 }
