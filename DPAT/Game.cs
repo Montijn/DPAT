@@ -139,18 +139,6 @@ namespace DPAT
             return -1;
 
         }
-        public int Number(ConsoleKey consoleKey)
-        {
-            if (Enum.IsDefined(typeof(ConsoleKey), (int)consoleKey))
-            {
-                return (int)consoleKey;
-            }
-            else
-            {
-                Console.WriteLine("The ConsoleKey does not represent an integer value.");
-                return 0;
-            }
-        }
 
     }
 }
