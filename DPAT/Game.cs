@@ -46,23 +46,23 @@ namespace DPAT
                 int move = GetMove();
                 switch (move)
                 {
-                    case 10: // UpArrow
+                    case 0: // UpArrow
                         if (currentRow > 0)
                             currentRow--; 
                         break;
-                    case 11: // RightArrow
+                    case 1: // RightArrow
                         if (currentColumn < 8)
                             currentColumn++; 
                         break;
-                    case 12: // DownArrow
+                    case 2: // DownArrow
                         if (currentRow < 8)
                             currentRow++; 
                         break;
-                    case 13: // LeftArrow
+                    case 3: // LeftArrow
                         if (currentColumn > 0)
                             currentColumn--; 
                         break;
-                    case 14: // Enter
+                    case 4: // Enter
                         ConsoleKey consoleKey = Console.ReadKey().Key;
                         if (char.IsDigit((char)consoleKey))
                         {
@@ -71,7 +71,6 @@ namespace DPAT
                             {
                                 puzzle[currentRow, currentColumn] = number;
                             }
-
                         }
                         break;
                     default:
@@ -122,17 +121,17 @@ namespace DPAT
                 switch (consoleKey)
                 {
                     case ConsoleKey.UpArrow:
-                        return 10;
+                        return 0;
                     case ConsoleKey.RightArrow:
-                        return 11;
+                        return 1;
                     case ConsoleKey.DownArrow:
-                        return 12;
+                        return 2;
                     case ConsoleKey.LeftArrow:
-                        return 13;
+                        return 3;
                     case ConsoleKey.Enter:
-                        return 14;
+                        return 4;
                     default:
-                        return 15;
+                        return 5;
 
                 }
             }
