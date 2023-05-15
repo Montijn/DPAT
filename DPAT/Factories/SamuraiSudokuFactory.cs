@@ -13,5 +13,10 @@ namespace DPAT
             {
             }
         }
+
+        public void CreateSudoku()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
