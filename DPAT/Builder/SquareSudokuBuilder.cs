@@ -78,24 +78,24 @@ namespace DPAT.Builder
         }
 
         public override void BuildColumns()
-        {
-            // Ensure _sudoku.Columns is initialized
-            if (_sudoku.Columns == null)
-            {
-                _sudoku.Columns = new Column[9];
-            }
+{
+    // Ensure _sudoku.Columns is initialized
+    if (_sudoku.Columns == null)
+    {
+        _sudoku.Columns = new Column[9];
+    }
 
-            for (int i = 0; i < 9; i++)
-            {
-                Cell[] cells = new Cell[9];
-                for (int j = 0; j < 9; j++)
-                {
-                    cells[j] = new Cell();
-                    cells[j].Value = initialPuzzle[j, i];
-                }
-                _sudoku.Columns[i] = new Column(cells);
-            }
+    for (int i = 0; i < 9; i++)
+    {
+        Cell[] cells = new Cell[9];
+        for (int j = 0; j < 9; j++)
+        {
+            cells[j] = new Cell();
+            cells[j].Value = initialPuzzle[j, i];
         }
+        _sudoku.Columns[i] = new Column(cells);
+    }
+}
 
         public override SquareSudoku GetSudoku()
         {

@@ -54,6 +54,9 @@ namespace DPAT
                             }
                         }
                         break;
+                    case 5: // 's' key
+                        CheckSudokuSolution();
+                        break;
                     default:
                         break;
                 }
@@ -62,6 +65,25 @@ namespace DPAT
                 Console.WriteLine("-------------------");
                 PrintPuzzle();
             }
+        }
+
+        private void CheckSudokuSolution()
+        {
+            StandardSolver solver = new StandardSolver(_sudoku);
+            bool isSolved = solver.IsSolvedCorrectly();
+
+            if (isSolved)
+            {
+                    Console.WriteLine("You solved it!");
+            }
+            else
+            {
+                Console.WriteLine("Still some mistakes :(");
+                Console.WriteLine("Press any key to continue playing...");
+            }
+
+
+            Console.ReadKey();
         }
 
         private void PrintPuzzle()
