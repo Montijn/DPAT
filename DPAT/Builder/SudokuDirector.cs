@@ -9,6 +9,10 @@ namespace DPAT.Builder
         public void Construct(SudokuBuilder builder)
         {
             builder.BuildSudoku();
+            builder.BuildBoxes();
+            builder.BuildRows();
+            builder.BuildColumns();
+
         }
     }
 }
