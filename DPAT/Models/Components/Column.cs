@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,12 +6,6 @@ namespace DPAT
 {
     public class Column
     {
-        public Cell Cell
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public Cell[] Cells { get; set; }
     }
 }

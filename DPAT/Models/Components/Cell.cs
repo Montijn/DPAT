@@ -6,12 +6,29 @@ namespace DPAT
 {
     public class Cell
     {
-        public CellState CellState
+        private ICellState _cellState;
+        private int _value;
+
+        public int Value
         {
-            get => default;
+            get => _value;
             set
             {
+                _value = value;
             }
         }
+        public  ICellState CellState
+        {
+            get => _cellState;
+            set
+            {
+                _cellState = value;
+            }
+        }
+        public void ChangeState(ICellState cellState)
+        {
+            CellState = cellState;
+        }
+
     }
 }

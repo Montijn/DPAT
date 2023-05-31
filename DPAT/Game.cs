@@ -8,18 +8,8 @@ namespace DPAT
     {
         int currentRow = 0;
         int currentColumn = 0;
-        int[,] puzzle = {
-            { 3, 2, 1, 7, 0, 4, 0, 0, 0 },
-            { 6, 4, 0, 0, 9, 0, 0, 0, 7 },
-            { 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-            { 0, 0, 0, 0, 4, 5, 9, 0, 0 },
-            { 0, 0, 5, 1, 8, 7, 4, 0, 0 },
-            { 0, 0, 4, 9, 6, 0, 0, 0, 0 },
-            { 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-            { 2, 0, 0, 0, 7, 0, 0, 1, 9 },
-            { 0, 0, 0, 6, 0, 9, 5, 8, 2 }
-        };
-        public SudokuFactory SudokuFactory
+        Cell[,] puzzle = new Cell[9, 9];
+        public ISudokuFactory SudokuFactory
         {
             get => default;
             set
@@ -36,8 +26,7 @@ namespace DPAT
         }
         public void StartGame()
         {
-         
-
+            LoadGame();
             Console.WriteLine("-------------------");
             PrintPuzzle();
             bool checkMove = true;
@@ -67,9 +56,9 @@ namespace DPAT
                         if (char.IsDigit((char)consoleKey))
                         {
                             int number = int.Parse(((char)consoleKey).ToString());
-                            if(puzzle[currentRow, currentColumn] == 0)
+                            if (puzzle[currentRow, currentColumn].Value == 0) // Compare Value property
                             {
-                                puzzle[currentRow, currentColumn] = number;
+                                puzzle[currentRow, currentColumn].Value = number; // Update Value property
                             }
                         }
                         break;
@@ -94,21 +83,48 @@ namespace DPAT
                         Console.Write("|");
                         Console.BackgroundColor = ConsoleColor.Blue;
                         Console.ForegroundColor = ConsoleColor.White;
-                        Console.Write("{0}", puzzle[i - 1, j - 1]);
+                        Console.Write("{0}", puzzle[i - 1, j - 1].Value);
                         Console.ResetColor();
                     }
-                    
                     else
-                        Console.Write("|{0}", puzzle[i - 1, j - 1]);
+                    {
+                        Console.Write("|{0}", puzzle[i - 1, j - 1].Value);
+                    }
                 }
 
                 Console.WriteLine("|");
-                if (i % 3 == 0) Console.WriteLine("-------------------");
+                if (i % 3 == 0)
+                {
+                    Console.WriteLine("-------------------");
+                }
             }
         }
-        public void LoadGame()
+        private void LoadGame()
         {
-           
+            int[,] initialPuzzle = {
+                { 3, 2, 1, 7, 0, 4, 0, 0, 0 },
+                { 6, 4, 0, 0, 9, 0, 0, 0, 7 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 4, 5, 9, 0, 0 },
+                { 0, 0, 5, 1, 8, 7, 4, 0, 0 },
+                { 0, 0, 4, 9, 6, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 2, 0, 0, 0, 7, 0, 0, 1, 9 },
+                { 0, 0, 0, 6, 0, 9, 5, 8, 2 }
+             };
+
+            for (int i = 0; i < 9; i++)
+            {
+                for (int j = 0; j < 9; j++)
+                {
+                    puzzle[i, j] = new Cell();
+                    puzzle[i, j].Value = initialPuzzle[i, j];
+                    if (puzzle[i, j].Value == 0)
+                        puzzle[i, j].CellState = new Assisting();
+                    else
+                    puzzle[i, j].CellState = new Definitive();
+                }
+            }
         }
 
         public int GetMove()

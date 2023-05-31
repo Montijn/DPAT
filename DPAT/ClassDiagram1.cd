@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1">
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Class Name="DPAT.Game">
-    <Position X="4.25" Y="2" Width="1.5" />
+    <Position X="4.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAiAAAAAAAAIAAAAAAAAAE=</HashCode>
+      <HashCode>AAAAAAAAIAwAAAAAAAAAAABiAAAAAAAAIAACAAAAAAE=</HashCode>
       <FileName>Game.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -12,7 +12,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="DPAT.FileReader">
-    <Position X="3.75" Y="0.75" Width="1.5" />
+    <Position X="3" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAQAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>FileReader.cs</FileName>
@@ -57,6 +57,8 @@
       <Path>
         <Point X="10.711" Y="5.868" />
         <Point X="10.711" Y="6.255" />
+        <Point X="10.835" Y="6.255" Type="JumpStart" />
+        <Point X="11.001" Y="6.255" Type="JumpEnd" />
         <Point X="12.109" Y="6.255" />
         <Point X="12.109" Y="7" />
         <Point X="12.125" Y="7" />
@@ -88,10 +90,10 @@
       <Path>
         <Point X="11.688" Y="5.868" />
         <Point X="11.688" Y="6.271" />
-        <Point X="10.47" Y="6.271" Type="JumpStart" />
-        <Point X="10.303" Y="6.271" Type="JumpEnd" />
-        <Point X="10.062" Y="6.271" />
-        <Point X="10.062" Y="7" />
+        <Point X="11.001" Y="6.271" Type="JumpStart" />
+        <Point X="10.835" Y="6.271" Type="JumpEnd" />
+        <Point X="10.312" Y="6.271" />
+        <Point X="10.312" Y="7" />
       </Path>
     </AssociationLine>
     <AssociationLine Name="Row" Type="DPAT.Row" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
@@ -128,10 +130,10 @@
         <Point X="13.5" Y="6.251" />
         <Point X="12.208" Y="6.251" Type="JumpStart" />
         <Point X="12.042" Y="6.251" Type="JumpEnd" />
-        <Point X="10.47" Y="6.251" Type="JumpStart" />
-        <Point X="10.303" Y="6.251" Type="JumpEnd" />
-        <Point X="10.062" Y="6.251" />
-        <Point X="10.062" Y="7" />
+        <Point X="11.001" Y="6.251" Type="JumpStart" />
+        <Point X="10.835" Y="6.251" Type="JumpEnd" />
+        <Point X="10.312" Y="6.251" />
+        <Point X="10.312" Y="7" />
       </Path>
     </AssociationLine>
     <AssociationLine Name="Row" Type="DPAT.Row" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
@@ -164,7 +166,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="DPAT.Box">
-    <Position X="9.25" Y="7" Width="1.5" />
+    <Position X="9.5" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Components\Box.cs</FileName>
@@ -176,25 +178,19 @@
   <Class Name="DPAT.Row">
     <Position X="11.25" Y="7" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Components\Row.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Cell" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="DPAT.Column">
     <Position X="13.25" Y="7" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Components\Column.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Cell" />
-    </ShowAsAssociation>
   </Class>
-  <Class Name="DPAT.SolverStrategy">
-    <Position X="3.5" Y="3.75" Width="1.5" />
+  <Class Name="DPAT.ISolverStrategy">
+    <Position X="3.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Strategies\SolverStrategy.cs</FileName>
@@ -209,9 +205,9 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="DPAT.Cell">
-    <Position X="7" Y="7" Width="1.5" />
+    <Position X="7.25" Y="5.25" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>ABAAAAAAAAAABAQAAAAAAAAAAAAEAAAAAAAgAAAAAAA=</HashCode>
       <FileName>Models\Components\Cell.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -250,25 +246,25 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Interface Name="DPAT.SudokuFactory">
-    <Position X="11.25" Y="2" Width="1.5" />
+  <Interface Name="DPAT.ISudokuFactory">
+    <Position X="11.5" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Interfaces\SudokuFactory.cs</FileName>
+      <FileName>Interfaces\ISudokuFactory.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="DPAT.Visitor">
-    <Position X="1.25" Y="2.25" Width="1.5" />
+  <Interface Name="DPAT.IVisitor">
+    <Position X="1.75" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAIAAAAAAAAAABAAACAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Interfaces\Visitor.cs</FileName>
+      <FileName>Interfaces\IVisitor.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="DPAT.CellState">
-    <Position X="4" Y="7" Width="1.5" />
+  <Interface Name="DPAT.ICellState">
+    <Position X="4" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAIAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Interfaces\CellState.cs</FileName>
+      <FileName>Interfaces\ICellState.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Font Name="Segoe UI" Size="9" />

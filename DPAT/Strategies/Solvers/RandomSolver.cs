@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DPAT
 {
-    public class RandomSolver : SolverStrategy
+    public class RandomSolver : ISolverStrategy
     {
         public void Solve()
         {

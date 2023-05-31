@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DPAT
 {
-    public interface Visitor
+    public interface IVisitor
     {
 
         public void VisitSquare();

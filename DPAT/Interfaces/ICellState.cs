@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DPAT
 {
-    public interface CellState
+    public interface ICellState
     {
         public void SetValue(int value);
         public void GetValue();

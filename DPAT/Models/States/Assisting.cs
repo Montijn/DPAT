@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DPAT
 {
-    public class Assisting : CellState
+    public class Assisting : ICellState
     {
         public void GetValue()
         {

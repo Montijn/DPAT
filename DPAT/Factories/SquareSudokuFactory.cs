@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DPAT
 {
-    public class SquareSudokuFactory : SudokuFactory
+    public class SquareSudokuFactory : ISudokuFactory
     {
         public SquareSudoku SquareSudoku
         {

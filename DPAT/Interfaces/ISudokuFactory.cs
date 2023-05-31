@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DPAT
 {
-    public interface SudokuFactory
+    public interface ISudokuFactory
     {
         public void CreateSudoku();
     }
