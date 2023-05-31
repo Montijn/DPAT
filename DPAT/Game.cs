@@ -11,10 +11,9 @@ namespace DPAT
 
         public Game(SudokuBuilder sudokuBuilder)
         {
-            sudokuBuilder.BuildSudoku();
-            sudokuBuilder.BuildBoxes();
-            sudokuBuilder.BuildRows();
-            sudokuBuilder.BuildColumns();
+            
+            SudokuDirector sudokuDirector = new SudokuDirector();
+            sudokuDirector.Construct(sudokuBuilder);
             _sudoku = sudokuBuilder.GetSudoku();
         }
 
