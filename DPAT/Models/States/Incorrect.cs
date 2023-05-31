@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DPAT
 {
-    public class Assisting : ICellState
+    public class Incorrect : ICellState
     {
         public void GetValue()
         {

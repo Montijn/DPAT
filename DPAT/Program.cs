@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace DPAT
 {
@@ -10,7 +10,8 @@ namespace DPAT
         [STAThread]
         static void Main(string[] args)
         {
-           Game game = new Game();
+            Game game = new Game();
+            game.StartGame();
         }
     }
 }
