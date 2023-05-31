@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace DPAT
 {
@@ -6,7 +6,8 @@ namespace DPAT
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Game game = new Game();
+            game.StartGame();
         }
     }
 }
