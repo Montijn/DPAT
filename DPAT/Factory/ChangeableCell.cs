@@ -7,7 +7,6 @@ namespace DPAT.Factory
     public class ChangeableCell : ICell
     {
         private int _value;
-        private ICellState _cellState;
         private string _color;
 
         public int Value
