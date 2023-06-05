@@ -8,6 +8,6 @@ namespace DPAT.Strategies.Parsers
 {
     internal interface IFileStrategy
     {
-        object ParseFile(object data);
+        object ParseFile(String path);
     }
 }

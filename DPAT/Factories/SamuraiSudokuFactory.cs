@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DPAT
 {
-    public class SamuraiSudokuFactory : SudokuFactory
+    public class SamuraiSudokuFactory
     {
         public SamuraiSudoku SamuraiSudoku
         {

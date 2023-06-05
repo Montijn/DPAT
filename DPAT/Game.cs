@@ -9,25 +9,22 @@ namespace DPAT
         int currentRow = 0;
         int currentColumn = 0;
         Cell[,] puzzle = new Cell[9, 9];
-        public ISudokuFactory SudokuFactory
+/*        public ISudokuFactory SudokuFactory
         {
             get => default;
             set
             {
             }
-        }
+        }*/
 
-        public FileReader FileReader
-        {
-            get => default;
-            set
-            {
-            }
-        }
         public void StartGame()
         {
-            LoadGame();
-            Console.WriteLine("-------------------");
+            FileReader _fileReader = FileReader.GetInstance();
+            Console.WriteLine(_fileReader.ToString());
+
+            _fileReader.loadFile();
+            /*LoadGame();*/
+/*            Console.WriteLine("-------------------");
             PrintPuzzle();
             bool checkMove = true;
             while (checkMove)
@@ -37,19 +34,19 @@ namespace DPAT
                 {
                     case 0: // UpArrow
                         if (currentRow > 0)
-                            currentRow--; 
+                            currentRow--;
                         break;
                     case 1: // RightArrow
                         if (currentColumn < 8)
-                            currentColumn++; 
+                            currentColumn++;
                         break;
                     case 2: // DownArrow
                         if (currentRow < 8)
-                            currentRow++; 
+                            currentRow++;
                         break;
                     case 3: // LeftArrow
                         if (currentColumn > 0)
-                            currentColumn--; 
+                            currentColumn--;
                         break;
                     case 4: // Enter
                         ConsoleKey consoleKey = Console.ReadKey().Key;
@@ -69,7 +66,7 @@ namespace DPAT
                 Console.Clear();
                 Console.WriteLine("-------------------");
                 PrintPuzzle();
-            }
+            }*/
         }
 
         private void PrintPuzzle()

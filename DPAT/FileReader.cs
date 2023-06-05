@@ -1,6 +1,8 @@
+using DPAT.Strategies.Parsers;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
@@ -25,8 +27,20 @@ namespace DPAT
         {
             OpenFileDialog fd = new OpenFileDialog();
             fd.ShowDialog();
-
-
+            IFileStrategy strategy;
+            Console.WriteLine(fd.FileName);
+            string extension = Path.GetExtension(fd.FileName);
+            Console.WriteLine(extension);
+            switch(extension) {
+                case ".samurai":
+                    break;
+                case ".jigsaw":
+                    break;
+                default:
+                    strategy = new SquareFileStrategy();
+                    strategy.ParseFile(fd.FileName);
+                    break;
+            }
         }
     }
 }
