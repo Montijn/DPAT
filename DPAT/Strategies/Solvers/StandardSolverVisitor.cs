@@ -2,7 +2,7 @@ using System;
 
 namespace DPAT
 {
-    public class StandardSolver : ISolverStrategy
+    public class StandardSolver : IVisitor
     {
         private SquareSudoku puzzle;
         private int size;
@@ -81,6 +81,21 @@ namespace DPAT
                 }
             }
             return false;
+        }
+
+        public void VisitSquare()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void VisitSamurai()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void VisitJigsaw()
+        {
+            throw new NotImplementedException();
         }
     }
 }

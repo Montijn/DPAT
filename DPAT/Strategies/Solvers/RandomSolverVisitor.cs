@@ -1,30 +1,27 @@
-using DPAT.Models.Components;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DPAT
 {
-    public class Row : Component
+    public class RandomSolver : IVisitor
     {
-        public Row(Cell[] cells)
-        {
-            Cells = cells;
-        }
-
-        public Cell[] Cells { get; set; }
-
-        public override void Add(Component c)
+        public bool IsSolvedCorrectly()
         {
             throw new NotImplementedException();
         }
 
-        public override void GetValue()
+        public void VisitJigsaw()
         {
             throw new NotImplementedException();
         }
 
-        public override void Remove(Component c)
+        public void VisitSamurai()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void VisitSquare()
         {
             throw new NotImplementedException();
         }
