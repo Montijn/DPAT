@@ -6,7 +6,7 @@ namespace DPAT
 {
     public class RandomSolver : ISolverStrategy
     {
-        public void Solve()
+        public bool IsSolvedCorrectly()
         {
             throw new NotImplementedException();
         }

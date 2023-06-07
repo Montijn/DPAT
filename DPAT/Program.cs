@@ -1,3 +1,4 @@
+using DPAT.Builder;
 using System;
 
 namespace DPAT
@@ -10,7 +11,8 @@ namespace DPAT
         [STAThread]
         static void Main(string[] args)
         {
-            Game game = new Game();
+            SudokuBuilder builder = new SquareSudokuBuilder();
+            GameController game = new GameController(builder);
             game.StartGame();
         }
     }

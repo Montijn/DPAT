@@ -1,270 +1,213 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
-  <Class Name="DPAT.Game">
-    <Position X="4.75" Y="1.75" Width="1.5" />
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DPAT.Builder.JigsawSudokuBuilder" Collapsed="true">
+    <Position X="8.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAIAwAAAAAAAAAAABiAAAAAAAAIAACAAAAAAE=</HashCode>
-      <FileName>Game.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="SudokuFactory" />
-      <Property Name="FileReader" />
-    </ShowAsAssociation>
-  </Class>
-  <Class Name="DPAT.FileReader">
-    <Position X="3" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAQAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>FileReader.cs</FileName>
+      <HashCode>AAAEAAAgAAAAAAAAAAAAAAAQCAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>Builder\JigsawSudokuBuilder.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="DPAT.SquareSudokuFactory">
-    <Position X="9.75" Y="3.5" Width="1.5" />
+  <Class Name="DPAT.Builder.SamuraiSudokuBuilder" Collapsed="true">
+    <Position X="10.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>CAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Factories\SquareSudokuFactory.cs</FileName>
+      <HashCode>AAAEAAAgAAAAAAAAAAAAAAAQCAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>Builder\SamuraiSudokuBuilder.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="SquareSudoku" />
-    </ShowAsAssociation>
-    <Lollipop Position="0.2" />
   </Class>
-  <Class Name="DPAT.SamuraiSudokuFactory">
-    <Position X="11.5" Y="3.5" Width="1.5" />
+  <Class Name="DPAT.Builder.SquareSudokuBuilder" Collapsed="true">
+    <Position X="12.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAACAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Factories\SamuraiSudokuFactory.cs</FileName>
+      <HashCode>AAAMAAAgAAAAAAAAAAAAAAAQCAAAAQAAAACAAAAAAAA=</HashCode>
+      <FileName>Builder\SquareSudokuBuilder.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="SamuraiSudoku" />
-    </ShowAsAssociation>
-    <Lollipop Position="0.2" />
   </Class>
-  <Class Name="DPAT.JigsawSudokuFactory">
-    <Position X="13.25" Y="3.5" Width="1.5" />
+  <Class Name="DPAT.Builder.SudokuBuilder" Collapsed="true">
+    <Position X="10.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Factories\JigsawSudokuFactory.cs</FileName>
+      <HashCode>AAAEAAAgAAAAAAAAAAAAAAAQCAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>Builder\SudokuBuilder.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="JigsawSudoku" />
-    </ShowAsAssociation>
-    <Lollipop Position="0.2" />
   </Class>
-  <Class Name="DPAT.SquareSudoku">
-    <Position X="9.75" Y="5" Width="1.5" />
-    <AssociationLine Name="Row" Type="DPAT.Row" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="10.711" Y="5.868" />
-        <Point X="10.711" Y="6.255" />
-        <Point X="10.835" Y="6.255" Type="JumpStart" />
-        <Point X="11.001" Y="6.255" Type="JumpEnd" />
-        <Point X="12.109" Y="6.255" />
-        <Point X="12.109" Y="7" />
-        <Point X="12.125" Y="7" />
-      </Path>
-    </AssociationLine>
-    <AssociationLine Name="Column" Type="DPAT.Column" ManuallyRouted="true">
-      <Path>
-        <Point X="11.125" Y="5.868" />
-        <Point X="11.125" Y="6.314" />
-        <Point X="12.042" Y="6.314" Type="JumpStart" />
-        <Point X="12.208" Y="6.314" Type="JumpEnd" />
-        <Point X="14" Y="6.314" />
-        <Point X="14" Y="7" />
-      </Path>
-    </AssociationLine>
+  <Class Name="DPAT.Builder.SudokuDirector" Collapsed="true">
+    <Position X="12.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAIAAgAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\Sudokus\SquareSudoku.cs</FileName>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Builder\SudokuDirector.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Box" />
-      <Property Name="Row" />
-      <Property Name="Column" />
-    </ShowAsAssociation>
   </Class>
-  <Class Name="DPAT.SamuraiSudoku">
-    <Position X="11.5" Y="5" Width="1.5" />
-    <AssociationLine Name="Box" Type="DPAT.Box" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="11.688" Y="5.868" />
-        <Point X="11.688" Y="6.271" />
-        <Point X="11.001" Y="6.271" Type="JumpStart" />
-        <Point X="10.835" Y="6.271" Type="JumpEnd" />
-        <Point X="10.312" Y="6.271" />
-        <Point X="10.312" Y="7" />
-      </Path>
-    </AssociationLine>
-    <AssociationLine Name="Row" Type="DPAT.Row" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="12.125" Y="5.868" />
-        <Point X="12.125" Y="6.75" />
-        <Point X="12.125" Y="6.75" />
-        <Point X="12.125" Y="7" />
-      </Path>
-    </AssociationLine>
-    <AssociationLine Name="Column" Type="DPAT.Column" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="12.906" Y="5.868" />
-        <Point X="12.906" Y="6.262" />
-        <Point X="14.062" Y="6.262" />
-        <Point X="14.062" Y="7" />
-      </Path>
-    </AssociationLine>
+  <Class Name="DPAT.GameController" Collapsed="true">
+    <Position X="4.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAIAAgAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\Sudokus\SamuraiSudoku.cs</FileName>
+      <HashCode>AAAAAAAAIAQAAQAAAAAAAABgAAAAAQAAAAACACAAAAA=</HashCode>
+      <FileName>Controller\GameController.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Box" />
-      <Property Name="Row" />
-      <Property Name="Column" />
-    </ShowAsAssociation>
   </Class>
-  <Class Name="DPAT.JigsawSudoku">
-    <Position X="13.25" Y="5" Width="1.5" />
-    <AssociationLine Name="Box" Type="DPAT.Box" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="13.5" Y="5.868" />
-        <Point X="13.5" Y="6.251" />
-        <Point X="12.208" Y="6.251" Type="JumpStart" />
-        <Point X="12.042" Y="6.251" Type="JumpEnd" />
-        <Point X="11.001" Y="6.251" Type="JumpStart" />
-        <Point X="10.835" Y="6.251" Type="JumpEnd" />
-        <Point X="10.312" Y="6.251" />
-        <Point X="10.312" Y="7" />
-      </Path>
-    </AssociationLine>
-    <AssociationLine Name="Row" Type="DPAT.Row" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="14.062" Y="5.868" />
-        <Point X="14.062" Y="6.251" />
-        <Point X="12.281" Y="6.251" />
-        <Point X="12.281" Y="7" />
-      </Path>
-    </AssociationLine>
-    <AssociationLine Name="Column" Type="DPAT.Column" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="14.062" Y="5.868" />
-        <Point X="14.062" Y="6.262" />
-        <Point X="13.719" Y="6.262" />
-        <Point X="13.719" Y="7" />
-      </Path>
-      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
-        <Position X="0.325" Y="0.06" Height="0.182" Width="0.5" />
-      </MemberNameLabel>
-    </AssociationLine>
+  <Class Name="DPAT.Factory.CellCreator" Collapsed="true">
+    <Position X="10.5" Y="6" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAIAAgAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\Sudokus\JigsawSudoku.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Factory\CellCreator.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Box" />
-      <Property Name="Row" />
-      <Property Name="Column" />
-    </ShowAsAssociation>
   </Class>
-  <Class Name="DPAT.Box">
-    <Position X="9.5" Y="7" Width="1.5" />
+  <Class Name="DPAT.Factory.ChangeableCell" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="9.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\Components\Box.cs</FileName>
+      <HashCode>ABAAAAAAAAAIBAQAAAAAAAAAAAAAAAAAAAAggAAAAAA=</HashCode>
+      <FileName>Factory\ChangeableCell.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Cell" />
-    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="DPAT.Row">
-    <Position X="11.25" Y="7" Width="1.5" />
+  <Class Name="DPAT.Factory.ChangeableCellCreator" Collapsed="true">
+    <Position X="9.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Factory\ChangeableCellCreator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPAT.Factory.UnchangeableCell" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.25" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAggAAAAAA=</HashCode>
+      <FileName>Factory\UnchangableCell.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPAT.Factory.UnchangeableCellCreator" Collapsed="true">
+    <Position X="11.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Factory\UnchangeableCellCreator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPAT.Box" Collapsed="true">
+    <Position X="12.75" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\Components\Row.cs</FileName>
+      <FileName>Models\Components\Box.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="DPAT.Column">
-    <Position X="13.25" Y="7" Width="1.5" />
+  <Class Name="DPAT.Cell" Collapsed="true">
+    <Position X="26.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAABAQAAAAAAAAAAAAEAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Models\Components\Cell.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPAT.Column" Collapsed="true">
+    <Position X="8.25" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Components\Column.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="DPAT.ISolverStrategy">
-    <Position X="3.25" Y="3.5" Width="1.5" />
+  <Class Name="DPAT.Row" Collapsed="true">
+    <Position X="10.5" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Strategies\SolverStrategy.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Components\Row.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="DPAT.RandomSolver">
-    <Position X="2.25" Y="4.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Strategies\Solvers\RandomSolver.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="DPAT.Cell">
-    <Position X="7.25" Y="5.25" Width="1.75" />
-    <TypeIdentifier>
-      <HashCode>ABAAAAAAAAAABAQAAAAAAAAAAAAEAAAAAAAgAAAAAAA=</HashCode>
-      <FileName>Models\Components\Cell.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="CellState" />
-    </ShowAsAssociation>
-  </Class>
-  <Class Name="DPAT.Definitive">
-    <Position X="2.25" Y="8.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAIAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\States\Definitive.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="DPAT.Assisting">
-    <Position X="4" Y="8.25" Width="1.5" />
+  <Class Name="DPAT.Assisting" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.5" Y="9.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAIAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\States\Assisting.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
+    <Lollipop Position="0.625" Collapsed="true" />
   </Class>
-  <Class Name="DPAT.Selected">
-    <Position X="5.75" Y="8.25" Width="1.5" />
+  <Class Name="DPAT.Definitive" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.25" Y="9.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAIAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\States\Selected.cs</FileName>
+      <FileName>Models\States\Definitive.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPAT.Wrong" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\States\Wrong.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DPAT.JigsawSudoku" Collapsed="true">
+    <Position X="8.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAACAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Models\Sudokus\JigsawSudoku.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPAT.SamuraiSudoku" Collapsed="true">
+    <Position X="10.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAACAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Models\Sudokus\SamuraiSudoku.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPAT.SquareSudoku" Collapsed="true">
+    <Position X="12.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAACAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Models\Sudokus\SquareSudoku.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPAT.RandomSolver" Collapsed="true">
+    <Position X="3.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Strategies\Solvers\RandomSolver.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="DPAT.StandardSolver">
-    <Position X="4.5" Y="4.75" Width="1.5" />
+  <Class Name="DPAT.StandardSolver" Collapsed="true">
+    <Position X="6" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAEAAAAAAgIAAgAAICAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Strategies\Solvers\StandardSolver.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Interface Name="DPAT.ISudokuFactory">
-    <Position X="11.5" Y="2" Width="1.5" />
+  <Class Name="DPAT.View.GameView" Collapsed="true">
+    <Position X="1" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Interfaces\ISudokuFactory.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\GameView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DPAT.FileReader" Collapsed="true">
+    <Position X="4.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FileReader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="DPAT.Factory.ICell" Collapsed="true">
+    <Position X="10.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAggAAAAAA=</HashCode>
+      <FileName>Factory\ICell.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="DPAT.IVisitor">
-    <Position X="1.75" Y="2.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAAAAAAAAAABAAACAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Interfaces\IVisitor.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
-  <Interface Name="DPAT.ICellState">
-    <Position X="4" Y="6.5" Width="1.5" />
+  <Interface Name="DPAT.ICellState" Collapsed="true">
+    <Position X="15.25" Y="8.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAIAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\ICellState.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DPAT.ISolverStrategy" Collapsed="true">
+    <Position X="4.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\ISolverStrategy.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DPAT.IVisitor" Collapsed="true">
+    <Position X="4.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAABAAACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IVisitor.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Font Name="Segoe UI" Size="9" />

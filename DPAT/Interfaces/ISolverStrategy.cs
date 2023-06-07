@@ -6,6 +6,6 @@ namespace DPAT
 {
     public interface ISolverStrategy
     {
-        public void Solve();
+        public bool IsSolvedCorrectly();
     }
 }
