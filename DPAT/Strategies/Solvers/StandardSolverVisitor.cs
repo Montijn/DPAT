@@ -2,12 +2,12 @@ using System;
 
 namespace DPAT
 {
-    public class StandardSolver : IVisitor
+    public class StandardSolverVisitor : IVisitor
     {
         private SquareSudoku puzzle;
         private int size;
 
-        public StandardSolver(SquareSudoku puzzle)
+        public StandardSolverVisitor(SquareSudoku puzzle)
         {
             this.puzzle = puzzle;
             this.size = 9;

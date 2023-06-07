@@ -12,5 +12,20 @@ namespace DPAT
         public Row[] Rows { get; set; }
 
         public Column[] Columns { get; set; }
+
+        public override void Add(Component c)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void GetValue()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Remove(Component c)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
