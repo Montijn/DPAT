@@ -6,6 +6,25 @@ namespace DPAT
 {
     public class GameController
     {
+        int currentRow = 0;
+        int currentColumn = 0;
+        Cell[,] puzzle = new Cell[9, 9];
+/*        public ISudokuFactory SudokuFactory
+        {
+            get => default;
+            set
+            {
+            }
+        }*/
+
+        public void StartGame()
+        {
+            FileReader _fileReader = FileReader.GetInstance();
+            Console.WriteLine(_fileReader.ToString());
+
+            _fileReader.loadFile();
+            /*LoadGame();*/
+/*            Console.WriteLine("-------------------");
         private int currentRow = 0;
         private int currentColumn = 0;
         private SquareSudoku _sudoku;
@@ -66,7 +85,7 @@ namespace DPAT
                 Console.Clear();
                 Console.WriteLine("-------------------");
                 PrintPuzzle();
-            }
+            }*/
         }
 
         private void CheckSudokuSolution()

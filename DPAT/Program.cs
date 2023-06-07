@@ -5,6 +5,10 @@ namespace DPAT
 {
     class Program
     {
+
+        private Game game;
+
+        [STAThread]
         static void Main(string[] args)
         {
             SudokuBuilder builder = new SquareSudokuBuilder();
