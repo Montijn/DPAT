@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -13,7 +13,7 @@ namespace DPAT.Strategies.Parsers
         {
             Console.WriteLine(path);
             String sudokuString;
-            using (var sr = new StreamReader(path))
+            using(var sr = new StreamReader(path))
             {
                 sudokuString = sr.ReadToEnd();
             }
@@ -23,9 +23,9 @@ namespace DPAT.Strategies.Parsers
 
             int[,] sudokuArray = new int[(int)dimension, (int)dimension];
 
-            for (int i = 0; i < dimension; i++)
+            for(int i = 0; i < dimension; i++)
             {
-                for (int j = 0; j < dimension; j++)
+                for(int j = 0; j < dimension; j++)
                 {
                     sudokuArray[i, j] = (int)Char.GetNumericValue(sudokuString[counter]);
                     counter++;
