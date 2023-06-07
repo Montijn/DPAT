@@ -8,7 +8,7 @@ namespace DPAT
         static void Main(string[] args)
         {
             SudokuBuilder builder = new SquareSudokuBuilder();
-            Game game = new Game(builder);
+            GameController game = new GameController(builder);
             game.StartGame();
         }
     }

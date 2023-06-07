@@ -1,20 +1,22 @@
 using DPAT.Builder;
+using DPAT.View;
 using System;
 
 namespace DPAT
 {
-    public class Game
+    public class GameController
     {
         private int currentRow = 0;
         private int currentColumn = 0;
         private SquareSudoku _sudoku;
-
-        public Game(SudokuBuilder sudokuBuilder)
+        private GameView gameview;
+        public GameController(SudokuBuilder sudokuBuilder)
         {
             
             SudokuDirector sudokuDirector = new SudokuDirector();
             sudokuDirector.Construct(sudokuBuilder);
             _sudoku = sudokuBuilder.GetSudoku();
+            gameview = new GameView();
         }
 
         public void StartGame()
