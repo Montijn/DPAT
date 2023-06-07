@@ -4,11 +4,11 @@ using System.Text;
 
 namespace DPAT.Factory
 {
-    public class UnchangeableCellCreator : CellCreator
+    public class ChangeableCellFactory : CellFactory
     {
         public override ICell CreateCell()
         {
-            return new UnchangeableCell();
+            return new ChangeableCell();
         }
     }
 }

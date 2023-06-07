@@ -1,10 +1,11 @@
+using DPAT.Models.Components;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DPAT
 {
-    public class JigsawSudoku
+    public class JigsawSudoku : Component
     {
         public Box[] Boxes { get; set; }
 

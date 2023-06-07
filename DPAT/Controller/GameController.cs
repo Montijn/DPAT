@@ -71,7 +71,7 @@ namespace DPAT
 
         private void CheckSudokuSolution()
         {
-            StandardSolver solver = new StandardSolver(_sudoku);
+            StandardSolverVisitor solver = new StandardSolverVisitor(_sudoku);
             bool isSolved = solver.IsSolvedCorrectly();
 
             if (isSolved)

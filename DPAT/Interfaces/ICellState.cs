@@ -6,7 +6,6 @@ namespace DPAT
 {
     public interface ICellState
     {
-        public void SetValue(int value);
-        public void GetValue();
+        public string Color { get; set; }
     }
 }

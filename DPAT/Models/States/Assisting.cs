@@ -6,14 +6,6 @@ namespace DPAT
 {
     public class Assisting : ICellState
     {
-        public void GetValue()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SetValue(int value)
-        {
-            throw new NotImplementedException();
-        }
+        public string Color { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
 }
