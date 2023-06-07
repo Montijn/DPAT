@@ -6,9 +6,100 @@ namespace DPAT.Builder
 {
     class SquareSudokuBuilder : SudokuBuilder
     {
+        protected SquareSudoku _sudoku;
+        private int[,] initialPuzzle = {
+            { 8, 3, 5, 4, 1, 6, 9, 2, 7 },
+            { 2, 9, 6, 8, 5, 7, 4, 3, 1 },
+            { 4, 1, 7, 2, 9, 3, 6, 5, 8 },
+            { 5, 6, 9, 1, 3, 4, 7, 8, 2 },
+            { 1, 2, 3, 6, 7, 8, 5, 4, 9 },
+            { 7, 4, 8, 5, 2, 9, 1, 6, 3 },
+            { 6, 5, 2, 7, 8, 1, 3, 9, 4 },
+            { 9, 8, 1, 3, 4, 5, 2, 7, 6 },
+            { 3, 7, 4, 9, 6, 2, 8, 1, 5 }
+         };
+
         public override void BuildSudoku()
         {
-            throw new NotImplementedException();
+            _sudoku = new SquareSudoku();
+        }
+
+        public override void BuildBoxes()
+        {
+            Box[] boxes = new Box[9];
+            for (int i = 0; i < 9; i++)
+            {
+                Cell[] cells = new Cell[9];
+                for (int j = 0; j < 9; j++)
+                {
+                    cells[j] = new Cell();
+                    cells[j].Value = initialPuzzle[i / 3 * 3 + j / 3, i % 3 * 3 + j % 3];
+                    if (cells[j].Value == 0)
+                    {
+                        cells[j].CellState = new Assisting();
+                    }
+                    else
+                    {
+                        cells[j].CellState = new Definitive();
+                    }
+                }
+                boxes[i] = new Box(cells);
+            }
+
+            _sudoku.Boxes = boxes;
+        }
+
+        public override void BuildRows()
+        {
+            // Ensure _sudoku.Rows is initialized
+            if (_sudoku.Rows == null)
+            {
+                _sudoku.Rows = new Row[9];
+            }
+
+            for (int i = 0; i < 9; i++)
+            {
+                Cell[] cells = new Cell[9];
+                for (int j = 0; j < 9; j++)
+                {
+                    cells[j] = new Cell();
+                    cells[j].Value = initialPuzzle[i, j];
+                    if (cells[j].Value == 0)
+                    {
+                        cells[j].CellState = new Assisting();
+                    }
+                    else
+                    {
+                        cells[j].CellState = new Definitive();
+                    }
+                }
+                _sudoku.Rows[i] = new Row(cells);
+            }
+        }
+
+        public override void BuildColumns()
+{
+    // Ensure _sudoku.Columns is initialized
+    if (_sudoku.Columns == null)
+    {
+        _sudoku.Columns = new Column[9];
+    }
+
+    for (int i = 0; i < 9; i++)
+    {
+        Cell[] cells = new Cell[9];
+        for (int j = 0; j < 9; j++)
+        {
+            cells[j] = new Cell();
+            cells[j].Value = initialPuzzle[j, i];
+        }
+        _sudoku.Columns[i] = new Column(cells);
+    }
+}
+
+        public override SquareSudoku GetSudoku()
+        {
+            return _sudoku;
         }
     }
 }

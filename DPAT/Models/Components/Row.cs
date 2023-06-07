@@ -6,6 +6,11 @@ namespace DPAT
 {
     public class Row
     {
+        public Row(Cell[] cells)
+        {
+            Cells = cells;
+        }
+
         public Cell[] Cells { get; set; }
     }
 }

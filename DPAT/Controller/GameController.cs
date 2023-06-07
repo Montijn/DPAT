@@ -1,32 +1,26 @@
+using DPAT.Builder;
+using DPAT.View;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace DPAT
 {
-    public class Game
+    public class GameController
     {
-        int currentRow = 0;
-        int currentColumn = 0;
-        Cell[,] puzzle = new Cell[9, 9];
-        public ISudokuFactory SudokuFactory
+        private int currentRow = 0;
+        private int currentColumn = 0;
+        private SquareSudoku _sudoku;
+        private GameView gameview;
+        public GameController(SudokuBuilder sudokuBuilder)
         {
-            get => default;
-            set
-            {
-            }
+            
+            SudokuDirector sudokuDirector = new SudokuDirector();
+            sudokuDirector.Construct(sudokuBuilder);
+            _sudoku = sudokuBuilder.GetSudoku();
+            gameview = new GameView();
         }
 
-        public FileReader FileReader
-        {
-            get => default;
-            set
-            {
-            }
-        }
         public void StartGame()
         {
-            LoadGame();
             Console.WriteLine("-------------------");
             PrintPuzzle();
             bool checkMove = true;
@@ -37,30 +31,33 @@ namespace DPAT
                 {
                     case 0: // UpArrow
                         if (currentRow > 0)
-                            currentRow--; 
+                            currentRow--;
                         break;
                     case 1: // RightArrow
                         if (currentColumn < 8)
-                            currentColumn++; 
+                            currentColumn++;
                         break;
                     case 2: // DownArrow
                         if (currentRow < 8)
-                            currentRow++; 
+                            currentRow++;
                         break;
                     case 3: // LeftArrow
                         if (currentColumn > 0)
-                            currentColumn--; 
+                            currentColumn--;
                         break;
                     case 4: // Enter
                         ConsoleKey consoleKey = Console.ReadKey().Key;
                         if (char.IsDigit((char)consoleKey))
                         {
                             int number = int.Parse(((char)consoleKey).ToString());
-                            if (puzzle[currentRow, currentColumn].Value == 0) // Compare Value property
+                            if (_sudoku.Rows[currentRow].Cells[currentColumn].Value == 0) // Compare Value property
                             {
-                                puzzle[currentRow, currentColumn].Value = number; // Update Value property
+                                _sudoku.Rows[currentRow].Cells[currentColumn].Value = number; // Update Value property
                             }
                         }
+                        break;
+                    case 5: // 's' key
+                        CheckSudokuSolution();
                         break;
                     default:
                         break;
@@ -70,6 +67,25 @@ namespace DPAT
                 Console.WriteLine("-------------------");
                 PrintPuzzle();
             }
+        }
+
+        private void CheckSudokuSolution()
+        {
+            StandardSolver solver = new StandardSolver(_sudoku);
+            bool isSolved = solver.IsSolvedCorrectly();
+
+            if (isSolved)
+            {
+                    Console.WriteLine("You solved it!");
+            }
+            else
+            {
+                Console.WriteLine("Still some mistakes :(");
+                Console.WriteLine("Press any key to continue playing...");
+            }
+
+
+            Console.ReadKey();
         }
 
         private void PrintPuzzle()
@@ -83,12 +99,12 @@ namespace DPAT
                         Console.Write("|");
                         Console.BackgroundColor = ConsoleColor.Blue;
                         Console.ForegroundColor = ConsoleColor.White;
-                        Console.Write("{0}", puzzle[i - 1, j - 1].Value);
+                        Console.Write("{0}", _sudoku.Rows[i - 1].Cells[j - 1].Value);
                         Console.ResetColor();
                     }
                     else
                     {
-                        Console.Write("|{0}", puzzle[i - 1, j - 1].Value);
+                        Console.Write("|{0}", _sudoku.Rows[i - 1].Cells[j - 1].Value);
                     }
                 }
 
@@ -99,39 +115,10 @@ namespace DPAT
                 }
             }
         }
-        private void LoadGame()
-        {
-            int[,] initialPuzzle = {
-                { 3, 2, 1, 7, 0, 4, 0, 0, 0 },
-                { 6, 4, 0, 0, 9, 0, 0, 0, 7 },
-                { 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 4, 5, 9, 0, 0 },
-                { 0, 0, 5, 1, 8, 7, 4, 0, 0 },
-                { 0, 0, 4, 9, 6, 0, 0, 0, 0 },
-                { 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                { 2, 0, 0, 0, 7, 0, 0, 1, 9 },
-                { 0, 0, 0, 6, 0, 9, 5, 8, 2 }
-             };
-
-            for (int i = 0; i < 9; i++)
-            {
-                for (int j = 0; j < 9; j++)
-                {
-                    puzzle[i, j] = new Cell();
-                    puzzle[i, j].Value = initialPuzzle[i, j];
-                    if (puzzle[i, j].Value == 0)
-                        puzzle[i, j].CellState = new Assisting();
-                    else
-                    puzzle[i, j].CellState = new Definitive();
-                }
-            }
-        }
 
         public int GetMove()
         {
-            bool b = true;
-
-            while (b)
+            while (true)
             {
                 ConsoleKey consoleKey = Console.ReadKey().Key;
                 switch (consoleKey)
@@ -148,12 +135,8 @@ namespace DPAT
                         return 4;
                     default:
                         return 5;
-
                 }
             }
-            return -1;
-
         }
-
     }
 }
