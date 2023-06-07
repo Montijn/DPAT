@@ -1,10 +1,11 @@
+using DPAT.Models.Components;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DPAT
 {
-    public class Cell
+    public class Cell : Component
     {
         private ICellState _cellState;
         private int _value;
@@ -25,10 +26,25 @@ namespace DPAT
                 _cellState = value;
             }
         }
+
+        public override void Add(Component c)
+        {
+            throw new NotImplementedException();
+        }
+
         public void ChangeState(ICellState cellState)
         {
             CellState = cellState;
         }
 
+        public override void GetValue()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Remove(Component c)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
