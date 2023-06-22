@@ -6,46 +6,28 @@ namespace DPAT
 {
     public class GameController
     {
-        int currentRow = 0;
-        int currentColumn = 0;
-        Cell[,] puzzle = new Cell[9, 9];
-/*        public ISudokuFactory SudokuFactory
-        {
-            get => default;
-            set
-            {
-            }
-        }*/
-
-        public void StartGame()
-        {
-            FileReader _fileReader = FileReader.GetInstance();
-            Console.WriteLine(_fileReader.ToString());
-
-            _fileReader.loadFile();
-            /*LoadGame();*/
-/*            Console.WriteLine("-------------------");
         private int currentRow = 0;
         private int currentColumn = 0;
         private SquareSudoku _sudoku;
-        private GameView gameview;
+        private GameView gameView;
+
         public GameController(SudokuBuilder sudokuBuilder)
         {
-            
             SudokuDirector sudokuDirector = new SudokuDirector();
             sudokuDirector.Construct(sudokuBuilder);
             _sudoku = sudokuBuilder.GetSudoku();
-            gameview = new GameView();
+            gameView = new GameView();
         }
 
         public void StartGame()
         {
-            Console.WriteLine("-------------------");
-            PrintPuzzle();
+            gameView.PrintPuzzle(_sudoku, currentRow, currentColumn);
             bool checkMove = true;
+
             while (checkMove)
             {
-                int move = GetMove();
+                int move = gameView.GetMove();
+
                 switch (move)
                 {
                     case 0: // UpArrow
@@ -82,80 +64,15 @@ namespace DPAT
                         break;
                 }
 
-                Console.Clear();
-                Console.WriteLine("-------------------");
-                PrintPuzzle();
-            }*/
+                gameView.PrintPuzzle(_sudoku, currentRow, currentColumn);
+            }
         }
 
         private void CheckSudokuSolution()
         {
             StandardSolverVisitor solver = new StandardSolverVisitor(_sudoku);
             bool isSolved = solver.IsSolvedCorrectly();
-
-            if (isSolved)
-            {
-                    Console.WriteLine("You solved it!");
-            }
-            else
-            {
-                Console.WriteLine("Still some mistakes :(");
-                Console.WriteLine("Press any key to continue playing...");
-            }
-
-
-            Console.ReadKey();
-        }
-
-        private void PrintPuzzle()
-        {
-            for (int i = 1; i < 10; ++i)
-            {
-                for (int j = 1; j < 10; ++j)
-                {
-                    if (i - 1 == currentRow && j - 1 == currentColumn)
-                    {
-                        Console.Write("|");
-                        Console.BackgroundColor = ConsoleColor.Blue;
-                        Console.ForegroundColor = ConsoleColor.White;
-                        Console.Write("{0}", _sudoku.Rows[i - 1].Cells[j - 1].Value);
-                        Console.ResetColor();
-                    }
-                    else
-                    {
-                        Console.Write("|{0}", _sudoku.Rows[i - 1].Cells[j - 1].Value);
-                    }
-                }
-
-                Console.WriteLine("|");
-                if (i % 3 == 0)
-                {
-                    Console.WriteLine("-------------------");
-                }
-            }
-        }
-
-        public int GetMove()
-        {
-            while (true)
-            {
-                ConsoleKey consoleKey = Console.ReadKey().Key;
-                switch (consoleKey)
-                {
-                    case ConsoleKey.UpArrow:
-                        return 0;
-                    case ConsoleKey.RightArrow:
-                        return 1;
-                    case ConsoleKey.DownArrow:
-                        return 2;
-                    case ConsoleKey.LeftArrow:
-                        return 3;
-                    case ConsoleKey.Enter:
-                        return 4;
-                    default:
-                        return 5;
-                }
-            }
+            gameView.DisplaySudokuSolution(isSolved);
         }
     }
 }
