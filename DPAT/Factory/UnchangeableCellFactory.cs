@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DPAT
+namespace DPAT.Factory
 {
-    public class RandomSolver : ISolverStrategy
+    public class UnchangeableCellFactory : CellFactory
     {
-        public bool IsSolvedCorrectly()
+        public override ICell CreateCell()
         {
             throw new NotImplementedException();
         }
