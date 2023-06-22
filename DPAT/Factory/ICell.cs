@@ -9,6 +9,7 @@ namespace DPAT.Factory
         int Value { get; set; }
         ICellState CellState { get;}
         string Color { get; set; }
+
     }
 }
 

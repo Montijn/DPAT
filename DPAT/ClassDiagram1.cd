@@ -42,11 +42,11 @@
       <FileName>Controller\GameController.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="DPAT.Factory.CellCreator" Collapsed="true">
-    <Position X="11.75" Y="7.25" Width="1.5" />
+  <Class Name="DPAT.Factory.CellFactory" Collapsed="true">
+    <Position X="12" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Factory\CellCreator.cs</FileName>
+      <FileName>Factory\CellFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DPAT.Factory.ChangeableCell" Collapsed="true" BaseTypeListCollapsed="true">
@@ -57,11 +57,11 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="DPAT.Factory.ChangeableCellCreator" Collapsed="true">
+  <Class Name="DPAT.Factory.ChangeableCellFactory" Collapsed="true">
     <Position X="10.75" Y="8.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Factory\ChangeableCellCreator.cs</FileName>
+      <FileName>Factory\ChangeableCellFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DPAT.Factory.UnchangeableCell" Collapsed="true" BaseTypeListCollapsed="true">
@@ -72,17 +72,17 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="DPAT.Factory.UnchangeableCellCreator" Collapsed="true">
+  <Class Name="DPAT.Factory.UnchangeableCellFactory" Collapsed="true">
     <Position X="13" Y="8.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Factory\UnchangeableCellCreator.cs</FileName>
+      <FileName>Factory\UnchangeableCellFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DPAT.Box" Collapsed="true">
     <Position X="12.75" Y="6.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAIAAAAAIAAAAAAAAAIABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Components\Box.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -110,7 +110,7 @@
   <Class Name="DPAT.Assisting" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="14.5" Y="10.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAIAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
       <FileName>Models\States\Assisting.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.625" Collapsed="true" />
@@ -118,7 +118,7 @@
   <Class Name="DPAT.Definitive" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="16.25" Y="10.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAIAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
       <FileName>Models\States\Definitive.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
@@ -134,21 +134,21 @@
   <Class Name="DPAT.JigsawSudoku" Collapsed="true">
     <Position X="8.25" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAACAAAAAAAAAAgAAAA=</HashCode>
+      <HashCode>AAIAAAAAIAAAAEAAAAAABAAAAAACAAAAAAAAAAgAAAA=</HashCode>
       <FileName>Models\Sudokus\JigsawSudoku.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DPAT.SamuraiSudoku" Collapsed="true">
     <Position X="10.5" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAACAAAAAAAAAAgAAAA=</HashCode>
+      <HashCode>AAIAAAAAIAAAAEAAAAAABAAAAAACAAAAAAAAAAgAAAA=</HashCode>
       <FileName>Models\Sudokus\SamuraiSudoku.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DPAT.SquareSudoku" Collapsed="true">
     <Position X="12.75" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAACAAAAAAAAAAgAAAA=</HashCode>
+      <HashCode>AAIAAAAAIAAAAEAAAAAABAAAAAACAAAAAAAAAAgAAAA=</HashCode>
       <FileName>Models\Sudokus\SquareSudoku.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -166,7 +166,7 @@
       <FileName>FileReader.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="DPAT.RandomSolverVisitor" Collapsed="true">
+  <Class Name="DPAT.RandomSolver" Collapsed="true">
     <Position X="3.75" Y="3.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAEAAAAAIAAAAAAAAAABAAACAAAAAAAAAAAAAAAAAA=</HashCode>
@@ -174,8 +174,8 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="DPAT.StandardSolverVisitor">
-    <Position X="1.75" Y="8" Width="3.75" />
+  <Class Name="DPAT.StandardSolverVisitor" Collapsed="true">
+    <Position X="5.75" Y="3.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAEAAAAAIgIAAgAAICABAAACAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Strategies\Solvers\StandardSolverVisitor.cs</FileName>
@@ -190,7 +190,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="DPAT.Strategies.Parsers.SamuraiFileStrategy" Collapsed="true">
-    <Position X="2.75" Y="5.75" Width="1.75" />
+    <Position X="2.5" Y="5.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Strategies\Parsers\SamuraiFileStrategy.cs</FileName>
@@ -207,8 +207,8 @@
   <Class Name="DPAT.Models.Components.Component" Collapsed="true">
     <Position X="10.75" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\Component.cs</FileName>
+      <HashCode>AAIAAAAAIAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Components\Component.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="DPAT.Factory.ICell" Collapsed="true">
@@ -221,7 +221,7 @@
   <Interface Name="DPAT.ICellState" Collapsed="true">
     <Position X="16.25" Y="9.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAIAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
       <FileName>Interfaces\ICellState.cs</FileName>
     </TypeIdentifier>
   </Interface>
