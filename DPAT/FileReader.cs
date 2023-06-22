@@ -1,21 +1,46 @@
+using DPAT.Strategies.Parsers;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Text;
+using System.Windows.Forms;
 
 namespace DPAT
 {
-    public class FileReader
+    public sealed class FileReader
     {
-        public FileReader FileReader1
+        private FileReader() { }
+
+        private static FileReader _instance;
+
+        public static FileReader GetInstance()
         {
-            get => default;
-            set
+            if(_instance == null)
             {
+                _instance = new FileReader();
             }
+            return _instance;
         }
-        public FileReader GetInstance()
+
+        public void loadFile()
         {
-            throw new NotImplementedException();
+            OpenFileDialog fd = new OpenFileDialog();
+            fd.ShowDialog();
+            IFileStrategy strategy;
+            Console.WriteLine(fd.FileName);
+            string extension = Path.GetExtension(fd.FileName);
+            Console.WriteLine(extension);
+            switch(extension) {
+                case ".samurai":
+                    break;
+                case ".jigsaw":
+                    break;
+                default:
+                    strategy = new SquareFileStrategy();
+                    strategy.ParseFile(fd.FileName);
+                    break;
+            }
         }
     }
 }

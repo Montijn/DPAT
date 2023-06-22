@@ -1,3 +1,4 @@
+
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,6 +14,7 @@ namespace DPAT.Strategies.Parsers
         {
             Console.WriteLine(path);
             String sudokuString;
+
             using (var sr = new StreamReader(path))
             {
                 sudokuString = sr.ReadToEnd();
