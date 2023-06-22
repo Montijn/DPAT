@@ -6,6 +6,6 @@ namespace DPAT
 {
     public class Definitive : ICellState
     {
-        public string Color { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public ConsoleColor Color => ConsoleColor.Yellow;
     }
 }

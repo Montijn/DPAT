@@ -1,3 +1,4 @@
+using DPAT.Factory;
 using DPAT.Models.Components;
 using System;
 using System.Collections.Generic;
@@ -7,12 +8,12 @@ namespace DPAT
 {
     public class Box : Component
     {
-        public Box(Cell[] cells)
+        public Box(ICell[] cells)
         {
             Cells = cells;
         }
 
-        public Cell[] Cells { get; set; }
+        public ICell[] Cells { get; set; }
 
         public override void Add(Component c)
         {

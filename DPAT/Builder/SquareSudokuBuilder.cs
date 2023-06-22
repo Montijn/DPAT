@@ -1,3 +1,5 @@
+using DPAT.Factory;
+using DPAT.Models.States;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -29,19 +31,23 @@ namespace DPAT.Builder
             Box[] boxes = new Box[9];
             for (int i = 0; i < 9; i++)
             {
-                Cell[] cells = new Cell[9];
+                ICell[] cells = new ICell[9];
                 for (int j = 0; j < 9; j++)
                 {
-                    cells[j] = new Cell();
-                    cells[j].Value = initialPuzzle[i / 3 * 3 + j / 3, i % 3 * 3 + j % 3];
-                    if (cells[j].Value == 0)
+                    if (initialPuzzle[i / 3 * 3 + j / 3, i % 3 * 3 + j % 3] == 0)
                     {
-                        cells[j].CellState = new Assisting();
+                        cells[j] = new ChangeableCell();
+                        cells[j].CellState = new Definitive();
                     }
                     else
                     {
-                        cells[j].CellState = new Definitive();
+                        cells[j] = new UnchangeableCell();
+                        cells[j].CellState = new Preset();
                     }
+                   
+                    
+                    cells[j].Value = initialPuzzle[i / 3 * 3 + j / 3, i % 3 * 3 + j % 3];
+                   
                 }
                 boxes[i] = new Box(cells);
             }
@@ -59,43 +65,55 @@ namespace DPAT.Builder
 
             for (int i = 0; i < 9; i++)
             {
-                Cell[] cells = new Cell[9];
+                ICell[] cells = new ICell[9];
                 for (int j = 0; j < 9; j++)
                 {
-                    cells[j] = new Cell();
-                    cells[j].Value = initialPuzzle[i, j];
-                    if (cells[j].Value == 0)
+                    if(initialPuzzle[i, j] == 0)
                     {
-                        cells[j].CellState = new Assisting();
+                        cells[j] = new ChangeableCell();
+                        cells[j].CellState = new Definitive();
                     }
                     else
                     {
-                        cells[j].CellState = new Definitive();
+                        cells[j] = new UnchangeableCell();
+                        cells[j].CellState = new Preset();
                     }
+                    cells[j].Value = initialPuzzle[i, j];
+                   
                 }
                 _sudoku.Rows[i] = new Row(cells);
             }
         }
 
         public override void BuildColumns()
-{
-    // Ensure _sudoku.Columns is initialized
-    if (_sudoku.Columns == null)
-    {
-        _sudoku.Columns = new Column[9];
-    }
-
-    for (int i = 0; i < 9; i++)
-    {
-        Cell[] cells = new Cell[9];
-        for (int j = 0; j < 9; j++)
         {
-            cells[j] = new Cell();
-            cells[j].Value = initialPuzzle[j, i];
+            // Ensure _sudoku.Columns is initialized
+            if (_sudoku.Columns == null)
+            {
+                _sudoku.Columns = new Column[9];
+            }
+
+            for (int i = 0; i < 9; i++)
+            {
+                ICell[] cells = new ICell[9];
+                for (int j = 0; j < 9; j++)
+                {
+                    if(initialPuzzle[j, i] == 0)
+                    {
+                        cells[j] = new ChangeableCell();
+                        cells[j].CellState = new Definitive();
+                    }
+                    else
+                    {
+                        cells[j] = new UnchangeableCell();
+                        cells[j].CellState = new Preset();
+                    }
+ 
+                    cells[j].Value = initialPuzzle[j, i];
+                }
+                _sudoku.Columns[i] = new Column(cells);
+            }
         }
-        _sudoku.Columns[i] = new Column(cells);
-    }
-}
 
         public override SquareSudoku GetSudoku()
         {

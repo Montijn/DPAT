@@ -1,15 +1,36 @@
 using DPAT.Models.Components;
+using DPAT.Models.States;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace DPAT.Factory
 {
     public class UnchangeableCell : Component, ICell
     {
-        public int Value { get; set; }
-        public string Color { get; set; }
-        public ICellState CellState => new Definitive();
+        private int _value;
+        private bool _isValueSet;
+        private ICellState _cellState;
+
+        public int Value
+        {
+            get => _value;
+            set
+            {
+                if (!_isValueSet)
+                {
+                    _value = value;
+                    _isValueSet = true;
+                }
+            }
+        }
+
+        public ICellState CellState
+        {
+            get => _cellState;
+            set
+            {
+                _cellState = value;
+            }
+        }
 
         public override void Add(Component c)
         {
