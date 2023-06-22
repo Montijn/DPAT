@@ -39,7 +39,7 @@ namespace DPAT.View
         {
             while (true)
             {
-                ConsoleKey consoleKey = Console.ReadKey().Key;
+                ConsoleKey consoleKey = Console.ReadKey(intercept: true).Key;
                 switch (consoleKey)
                 {
                     case ConsoleKey.UpArrow:
@@ -52,7 +52,7 @@ namespace DPAT.View
                         return 3;
                     case ConsoleKey.Enter:
                         return 4;
-                    default:
+                    case ConsoleKey.S:
                         return 5;
                 }
             }
@@ -70,7 +70,7 @@ namespace DPAT.View
                 Console.WriteLine("Press any key to continue playing...");
             }
 
-            Console.ReadKey();
+            Console.ReadKey(intercept: true);
         }
     }
 }

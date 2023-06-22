@@ -8,7 +8,7 @@ namespace DPAT.Builder
     {
         protected SquareSudoku _sudoku;
         private int[,] initialPuzzle = {
-            { 8, 3, 5, 4, 1, 6, 9, 2, 7 },
+            { 0, 3, 5, 4, 1, 6, 9, 2, 7 },
             { 2, 9, 6, 8, 5, 7, 4, 3, 1 },
             { 4, 1, 7, 2, 9, 3, 6, 5, 8 },
             { 5, 6, 9, 1, 3, 4, 7, 8, 2 },
