@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DPAT.Factory
 {
-    public class ChangeableCellCreator : CellCreator
+    public class ChangeableCellFactory : CellFactory
     {
         public override ICell CreateCell()
         {
