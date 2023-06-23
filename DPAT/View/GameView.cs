@@ -1,3 +1,4 @@
+using DPAT.Factory;
 using System;
 
 namespace DPAT.View
@@ -15,11 +16,11 @@ namespace DPAT.View
                 {
                     if (i - 1 == currentRow && j - 1 == currentColumn)
                     {
-                        Console.Write("|");
-                        Console.BackgroundColor = ConsoleColor.Blue;
-                        Console.ForegroundColor = ConsoleColor.White;
-                        Console.Write("{0}", sudoku.Rows[i - 1].Cells[j - 1].Value);
-                        Console.ResetColor();
+                        PrintCellWithColor(sudoku.Rows[i - 1].Cells[j - 1], ConsoleColor.Blue, ConsoleColor.White);
+                    }
+                    else if (sudoku.Rows[i - 1].Cells[j - 1].CellState is Definitive)
+                    {
+                        PrintCellWithColor(sudoku.Rows[i - 1].Cells[j - 1], sudoku.Rows[i - 1].Cells[j - 1].CellState.Color, ConsoleColor.Black);
                     }
                     else
                     {
@@ -35,11 +36,20 @@ namespace DPAT.View
             }
         }
 
+        private void PrintCellWithColor(ICell cell, ConsoleColor backgroundColor, ConsoleColor foregroundColor)
+        {
+            Console.Write("|");
+            Console.BackgroundColor = backgroundColor;
+            Console.ForegroundColor = foregroundColor;
+            Console.Write("{0}", cell.Value);
+            Console.ResetColor();
+        }
+
         public int GetMove()
         {
             while (true)
             {
-                ConsoleKey consoleKey = Console.ReadKey().Key;
+                ConsoleKey consoleKey = Console.ReadKey(intercept: true).Key;
                 switch (consoleKey)
                 {
                     case ConsoleKey.UpArrow:
@@ -52,7 +62,7 @@ namespace DPAT.View
                         return 3;
                     case ConsoleKey.Enter:
                         return 4;
-                    default:
+                    case ConsoleKey.S:
                         return 5;
                 }
             }
@@ -70,7 +80,7 @@ namespace DPAT.View
                 Console.WriteLine("Press any key to continue playing...");
             }
 
-            Console.ReadKey();
+            Console.ReadKey(intercept: true);
         }
     }
 }

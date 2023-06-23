@@ -8,7 +8,7 @@ namespace DPAT.Factory
     {
         public override ICell CreateCell()
         {
-            throw new NotImplementedException();
+            return new UnchangeableCell();
         }
     }
 }

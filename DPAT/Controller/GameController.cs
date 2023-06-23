@@ -1,4 +1,5 @@
 using DPAT.Builder;
+using DPAT.Factory;
 using DPAT.View;
 using System;
 
@@ -51,7 +52,7 @@ namespace DPAT
                         if (char.IsDigit((char)consoleKey))
                         {
                             int number = int.Parse(((char)consoleKey).ToString());
-                            if (_sudoku.Rows[currentRow].Cells[currentColumn].Value == 0) // Compare Value property
+                            if (_sudoku.Rows[currentRow].Cells[currentColumn] is ChangeableCell ) // Compare Value property
                             {
                                 _sudoku.Rows[currentRow].Cells[currentColumn].Value = number; // Update Value property
                             }
