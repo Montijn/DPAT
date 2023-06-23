@@ -2,17 +2,18 @@ using DPAT.Models.Components;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using DPAT.Factory;
 
 namespace DPAT
 {
     public class Column : Component
     {
-        public Column(Cell[] cells)
+        public Column(ICell[] cells)
         {
             Cells = cells;
         }
 
-        public Cell[] Cells { get; set; }
+        public ICell[] Cells { get; set; }
 
         public override void Add(Component c)
         {
