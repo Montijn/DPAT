@@ -22,6 +22,10 @@ namespace DPAT.View
                     {
                         PrintCellWithColor(sudoku.Rows[i - 1].Cells[j - 1], sudoku.Rows[i - 1].Cells[j - 1].CellState.Color, ConsoleColor.Black);
                     }
+                    else if (sudoku.Rows[i - 1].Cells[j - 1].CellState is Assisting)
+                    {
+                        PrintAssistingCell(sudoku.Rows[i - 1].Cells[j - 1]);
+                    }
                     else
                     {
                         Console.Write("|{0}", sudoku.Rows[i - 1].Cells[j - 1].Value);
@@ -33,6 +37,61 @@ namespace DPAT.View
                 {
                     Console.WriteLine("-------------------");
                 }
+            }
+        }
+
+        public void PrintPuzzleRows(SquareSudoku sudoku, int currentRow, int currentColumn)
+        {
+            Console.Clear();
+            Console.WriteLine("-------------------");
+            foreach (var row in sudoku.Rows)
+            {
+                foreach(var cell in row.Cells)
+                {
+                    if(cell.CellState is Definitive)
+                    {
+                        PrintCellWithColor(cell,cell.CellState.Color, ConsoleColor.Black);
+                    }
+                    else if(cell.CellState is Assisting)
+                    {
+                        PrintAssistingCell(cell);
+                    }
+                    else
+                    {
+                        Console.Write("|{0}", cell.Value);
+                    }
+                }
+                Console.WriteLine("|");
+            }
+        }
+
+        private void PrintAssistingCell(ICell cell)
+        {
+            for (int row = 0; row < 3; row++)
+            {
+                for (int col = 0; col < 3; col++)
+                {
+                    int index = row * 3 + col;
+
+                    if (index < cell.AssistingValues.Length)
+                    {
+                        int value = cell.AssistingValues[index];
+                        Console.Write("{0}", value);
+                    }
+                    else
+                    {
+                        Console.Write("_"); // Display spaces for missing values
+                    }
+
+                    if ((col + 1) % 3 == 0)
+                    {
+                        Console.Write("|");
+                       
+                    }
+                }
+
+                Console.WriteLine();// Add vertical separator after each 3 cells
+
             }
         }
 

@@ -9,6 +9,7 @@ namespace DPAT.Factory
         private int _value;
         private bool _isValueSet;
         private ICellState _cellState;
+        private int[] _assistingValues;
 
         public int Value
         {
@@ -31,6 +32,15 @@ namespace DPAT.Factory
                 _cellState = value;
             }
         }
+        public int[] AssistingValues
+        {
+            get => _assistingValues;
+            set
+            {
+                _assistingValues = value;
+            }
+        }
+
 
         public override void Add(Component c)
         {

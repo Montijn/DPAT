@@ -22,7 +22,8 @@ namespace DPAT
 
         public void StartGame()
         {
-            gameView.PrintPuzzle(_sudoku, currentRow, currentColumn);
+            ChangeToAssisting();
+            gameView.PrintPuzzleRows(_sudoku, currentRow, currentColumn);
             bool checkMove = true;
 
             while (checkMove)
@@ -52,7 +53,7 @@ namespace DPAT
                         if (char.IsDigit((char)consoleKey))
                         {
                             int number = int.Parse(((char)consoleKey).ToString());
-                            if (_sudoku.Rows[currentRow].Cells[currentColumn] is ChangeableCell ) // Compare Value property
+                            if (_sudoku.Rows[currentRow].Cells[currentColumn] is ChangeableCell) // Compare Value property
                             {
                                 _sudoku.Rows[currentRow].Cells[currentColumn].Value = number; // Update Value property
                             }
@@ -65,13 +66,64 @@ namespace DPAT
                         break;
                 }
 
-                gameView.PrintPuzzle(_sudoku, currentRow, currentColumn);
+                gameView.PrintPuzzleRows(_sudoku, currentRow, currentColumn);
             }
         }
 
+        //TODO Change states. Get all ChangebleCells and change the states of them.
+        private void ChangeToAssisting()
+        {
+            foreach (Row row in _sudoku.Rows)
+            {
+                foreach (ICell cell in row.Cells)
+                {
+                    cell.CellState = new Assisting();
+                    if (cell is ChangeableCell changeableCell)
+                    {
+                        changeableCell.AssistingValues = new int[9];
+                    }
+                    else if (cell is UnchangeableCell unchangeableCell)
+                    {
+                        cell.AssistingValues = new int[] { unchangeableCell.Value };
+                    }
+                }
+            }
+
+            foreach (Column column in _sudoku.Columns)
+            {
+                foreach (ICell cell in column.Cells)
+                {
+                    cell.CellState = new Assisting();
+                    if (cell is ChangeableCell changeableCell)
+                    {
+                        changeableCell.AssistingValues = new int[9];
+                    }
+                    else if (cell is UnchangeableCell unchangeableCell)
+                    {
+                        cell.AssistingValues = new int[] { unchangeableCell.Value };
+                    }
+                }
+            }
+
+            foreach (Box box in _sudoku.Boxes)
+            {
+                foreach (ICell cell in box.Cells)
+                {
+                    cell.CellState = new Assisting();
+                    if (cell is ChangeableCell changeableCell)
+                    {
+                        changeableCell.AssistingValues = new int[9];
+                    }
+                    else if (cell is UnchangeableCell unchangeableCell)
+                    {
+                        cell.AssistingValues = new int[] { unchangeableCell.Value };
+                    }
+                }
+            }
+        }
         private void CheckSudokuSolution()
         {
-            StandardSolverVisitor solver = new StandardSolverVisitor(_sudoku);
+            Checker solver = new Checker(_sudoku);
             bool isSolved = solver.IsSolvedCorrectly();
             gameView.DisplaySudokuSolution(isSolved);
         }

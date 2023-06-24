@@ -8,7 +8,7 @@ namespace DPAT.Factory
     {
         int Value { get; set; }
         ICellState CellState { get; set; }
-
+        public int[] AssistingValues { get; set; }
     }
 }
 
