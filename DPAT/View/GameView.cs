@@ -1,11 +1,12 @@
 using DPAT.Factory;
 using System;
+using System.Collections.Generic;
 
 namespace DPAT.View
 {
     public class GameView
     {
-        public void PrintPuzzle(SquareSudoku sudoku, int currentRow, int currentColumn)
+        public void PrintDefinitiveSudoku(SquareSudoku sudoku, int currentRow, int currentColumn)
         {
             Console.Clear();
             Console.WriteLine("-------------------");
@@ -22,10 +23,6 @@ namespace DPAT.View
                     {
                         PrintCellWithColor(sudoku.Rows[i - 1].Cells[j - 1], sudoku.Rows[i - 1].Cells[j - 1].CellState.Color, ConsoleColor.Black);
                     }
-                    else if (sudoku.Rows[i - 1].Cells[j - 1].CellState is Assisting)
-                    {
-                        PrintAssistingCell(sudoku.Rows[i - 1].Cells[j - 1]);
-                    }
                     else
                     {
                         Console.Write("|{0}", sudoku.Rows[i - 1].Cells[j - 1].Value);
@@ -40,21 +37,60 @@ namespace DPAT.View
             }
         }
 
-        public void PrintPuzzleRows(SquareSudoku sudoku, int currentRow, int currentColumn)
+        public void PrintAssisingSudoku(SquareSudoku sudoku, int currentRow, int currentColumn)
         {
             Console.Clear();
-            Console.WriteLine("-------------------");
+
             foreach (var row in sudoku.Rows)
             {
-                foreach(var cell in row.Cells)
+                // Store the assisting values for each row in a list
+                List<int[]> assistingValuesList = new List<int[]>();
+
+                foreach (var cell in row.Cells)
                 {
-                    if(cell.CellState is Definitive)
+                    if (cell.CellState is Assisting)
                     {
-                        PrintCellWithColor(cell,cell.CellState.Color, ConsoleColor.Black);
+                        assistingValuesList.Add(cell.AssistingValues);
                     }
-                    else if(cell.CellState is Assisting)
+                }
+
+                // Print the assisting values for each row
+                for (int assistingRow = 0; assistingRow < 3; assistingRow++)
+                {
+                    foreach (var assistingValues in assistingValuesList)
                     {
-                        PrintAssistingCell(cell);
+                        for (int col = assistingRow * 3; col < (assistingRow + 1) * 3; col++)
+                        {
+                            if (col < assistingValues.Length)
+                            {
+                                int value = assistingValues[col];
+                                Console.Write("{0}", value);
+                            }
+                            else
+                            {
+                                Console.Write("_"); // Display spaces for missing values
+                            }
+
+                            if ((col + 1) % 3 == 0)
+                            {
+                                Console.Write("|");
+                            }
+                        }
+                    }
+                    Console.WriteLine(); // Move to the next line for the next assisting row
+                }
+
+                // Print the remaining cells in the row
+                foreach (var cell in row.Cells)
+                {
+                    if (cell.CellState is Definitive)
+                    {
+                        PrintCellWithColor(cell, cell.CellState.Color, ConsoleColor.Black);
+                    }
+                    else if (cell.CellState is Assisting)
+                    {
+                        // Skip printing the assisting values again
+                        continue;
                     }
                     else
                     {
@@ -65,35 +101,7 @@ namespace DPAT.View
             }
         }
 
-        private void PrintAssistingCell(ICell cell)
-        {
-            for (int row = 0; row < 3; row++)
-            {
-                for (int col = 0; col < 3; col++)
-                {
-                    int index = row * 3 + col;
-
-                    if (index < cell.AssistingValues.Length)
-                    {
-                        int value = cell.AssistingValues[index];
-                        Console.Write("{0}", value);
-                    }
-                    else
-                    {
-                        Console.Write("_"); // Display spaces for missing values
-                    }
-
-                    if ((col + 1) % 3 == 0)
-                    {
-                        Console.Write("|");
-                       
-                    }
-                }
-
-                Console.WriteLine();// Add vertical separator after each 3 cells
-
-            }
-        }
+       
 
         private void PrintCellWithColor(ICell cell, ConsoleColor backgroundColor, ConsoleColor foregroundColor)
         {

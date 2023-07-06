@@ -11,6 +11,7 @@ namespace DPAT
         private int currentColumn = 0;
         private SquareSudoku _sudoku;
         private GameView gameView;
+        private bool assisting = false;
 
         public GameController(SudokuBuilder sudokuBuilder)
         {
@@ -23,7 +24,15 @@ namespace DPAT
         public void StartGame()
         {
             ChangeToAssisting();
-            gameView.PrintPuzzleRows(_sudoku, currentRow, currentColumn);
+            if (assisting)
+            {
+                gameView.PrintAssisingSudoku(_sudoku, currentRow, currentColumn);
+            }
+            else
+            {
+                gameView.PrintDefinitiveSudoku(_sudoku, currentRow, currentColumn);
+            }
+            
             bool checkMove = true;
 
             while (checkMove)
@@ -66,13 +75,21 @@ namespace DPAT
                         break;
                 }
 
-                gameView.PrintPuzzleRows(_sudoku, currentRow, currentColumn);
+                if (assisting)
+                {
+                    gameView.PrintAssisingSudoku(_sudoku, currentRow, currentColumn);
+                }
+                else
+                {
+                    gameView.PrintDefinitiveSudoku(_sudoku, currentRow, currentColumn);
+                }
             }
         }
 
         //TODO Change states. Get all ChangebleCells and change the states of them.
         private void ChangeToAssisting()
         {
+            assisting = true;
             foreach (Row row in _sudoku.Rows)
             {
                 foreach (ICell cell in row.Cells)
