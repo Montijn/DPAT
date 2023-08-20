@@ -13,17 +13,21 @@ namespace DPAT
         private GameView gameView;
         private bool assisting = false;
 
-        public GameController(SudokuBuilder sudokuBuilder)
+        public GameController()
         {
+            FileReader _fileReader = FileReader.GetInstance();
+            Console.WriteLine(_fileReader.ToString());
+            int[,] parsedArray = _fileReader.loadFile();
+            SudokuBuilder builder = new SquareSudokuBuilder(parsedArray);
             SudokuDirector sudokuDirector = new SudokuDirector();
-            sudokuDirector.Construct(sudokuBuilder);
-            _sudoku = sudokuBuilder.GetSudoku();
+            sudokuDirector.Construct(builder);
+            _sudoku = builder.GetSudoku();
             gameView = new GameView();
         }
 
         public void StartGame()
         {
-            ChangeToAssisting();
+            //ChangeToAssisting();
             if (assisting)
             {
                 gameView.PrintAssisingSudoku(_sudoku, currentRow, currentColumn);
@@ -86,7 +90,6 @@ namespace DPAT
             }
         }
 
-        //TODO Change states. Get all ChangebleCells and change the states of them.
         private void ChangeToAssisting()
         {
             assisting = true;

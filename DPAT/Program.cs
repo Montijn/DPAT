@@ -10,9 +10,8 @@ namespace DPAT
 
         [STAThread]
         static void Main(string[] args)
-        {
-            SudokuBuilder builder = new SquareSudokuBuilder();
-            GameController game = new GameController(builder);
+        {   
+            GameController game = new GameController();
             game.StartGame();
         }
     }

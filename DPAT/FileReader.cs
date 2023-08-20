@@ -23,7 +23,7 @@ namespace DPAT
             return _instance;
         }
 
-        public void loadFile()
+        public int[,] loadFile()
         {
             OpenFileDialog fd = new OpenFileDialog();
             fd.ShowDialog();
@@ -31,16 +31,17 @@ namespace DPAT
             Console.WriteLine(fd.FileName);
             string extension = Path.GetExtension(fd.FileName);
             Console.WriteLine(extension);
-            switch(extension) {
+            switch (extension)
+            {
                 case ".samurai":
                     break;
                 case ".jigsaw":
                     break;
                 default:
                     strategy = new SquareFileStrategy();
-                    strategy.ParseFile(fd.FileName);
-                    break;
+                    return (int[,])strategy.ParseFile(fd.FileName); // Return the parsed array
             }
+            return null; // Return appropriate value for cases with no array
         }
     }
 }
