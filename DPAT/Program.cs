@@ -6,7 +6,6 @@ namespace DPAT
     class Program
     {
 
-        private GameController game;
 
         [STAThread]
         static void Main(string[] args)

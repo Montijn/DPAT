@@ -2,7 +2,7 @@ using System;
 
 namespace DPAT
 {
-    public class Checker : IVisitor
+    public class Checker
     {
         private SquareSudoku puzzle;
         private int size;

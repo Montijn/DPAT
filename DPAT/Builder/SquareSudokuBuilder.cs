@@ -6,7 +6,7 @@ using System.Text;
 
 namespace DPAT.Builder
 {
-    class SquareSudokuBuilder : SudokuBuilder
+   public class SquareSudokuBuilder : SudokuBuilder
     {
         protected SquareSudoku _sudoku;
         private int[,] initialPuzzle;

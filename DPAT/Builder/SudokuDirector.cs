@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DPAT.Builder
 {
-    class SudokuDirector
+   public class SudokuDirector
     {
         public void Construct(SudokuBuilder builder)
         {
